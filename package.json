@@ -1,0 +1,15 @@
+{
+  "name": "bjartwolfSite",
+  "version": "0.0.0",
+  "description": "My homepage",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjartwolf/bjartwolfSite"
+  },
+  "author": "Bjartwolf",
+  "license": "BSD"
+}
