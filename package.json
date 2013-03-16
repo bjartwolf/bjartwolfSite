@@ -11,5 +11,9 @@
     "url": "https://github.com/bjartwolf/bjartwolfSite"
   },
   "author": "Bjartwolf",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "express": "~3.1.0",
+    "jade": "~0.28.2"
+  }
 }
