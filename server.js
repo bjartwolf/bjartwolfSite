@@ -2,6 +2,7 @@ var express = require('express'),
     app = express();
 
 app.configure(function () {
+  app.use(express.favicon(__dirname + '/public/images/favicon.ico')); 
   app.use('/public', express.static(__dirname + '/public'));
   app.set('views', __dirname + '/template');
 });
