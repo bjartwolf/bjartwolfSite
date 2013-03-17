@@ -14,4 +14,3 @@ app.get('/blog', function (req, res) {
     res.redirect('http://blog.bjartwolf.com');
 });
 app.listen(process.env.port || 8000);
-
