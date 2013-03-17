@@ -10,6 +10,6 @@ app.get('/', function (req, res) {
     res.render('index.jade');
 });
 app.get('/blog', function (req, res) {
-    res.redirect('http://bjartwolfblog.azurewebsites.net');
+    res.redirect('http://blog.bjartwolf.com');
 });
 app.listen(process.env.port || 8000);
