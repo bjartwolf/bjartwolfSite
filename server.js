@@ -13,6 +13,9 @@ app.configure(function () {
 app.get('/', function (req, res) {
     res.render('index.jade');
 });
+app.get('/cute', function (req, res) {
+    res.redirect('http://213.180.83.51/pivotviewer');
+});
 app.get('/blog', function (req, res) {
     res.redirect('http://blog.bjartwolf.com');
 });
