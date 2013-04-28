@@ -21,7 +21,7 @@ app.get('/clientaccesspolicy.xml', function (req, res) {
 });
 app.get('/pivot/:path', function (req, res) {
     console.log(req.params.path);
-    res.redirect('http://213.180.83.51' + req.params.path);
+    res.redirect('http://213.180.83.51/' + req.params.path);
 });
 app.listen(process.env.port || 8000);
 
