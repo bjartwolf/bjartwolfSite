@@ -3,11 +3,10 @@
   <cross-domain-access>
     <policy>
       <allow-from http-request-headers="*">
-        <domain uri="213.180.83.51"/>
-        <domain uri="www.bjartwolf.com"/>
+        <domain uri="*"/>
       </allow-from>
       <grant-to>
-        <resource path="/pivot" include-subpaths="true"/>
+        <resource path="/" include-subpaths="true"/>
       </grant-to>
     </policy>
   </cross-domain-access>
