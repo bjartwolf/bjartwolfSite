@@ -19,9 +19,8 @@ app.get('/blog', function (req, res) {
 app.get('/clientaccesspolicy.xml', function (req, res) {
     res.send(clientaccesspolicy);
 });
-app.get('/pivot/:path', function (req, res) {
-    console.log(req.params.path);
-    res.redirect('http://213.180.83.51/pivot/' + req.params.path);
+app.get('/pivot/*', function (req, res) {
+    res.redirect('http://213.180.83.51/pivot' + req.url);
 });
 app.listen(process.env.port || 8000);
 
