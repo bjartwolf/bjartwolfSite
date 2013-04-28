@@ -20,7 +20,7 @@ app.get('/clientaccesspolicy.xml', function (req, res) {
     res.send(clientaccesspolicy);
 });
 app.get('/pivot/*', function (req, res) {
-    res.redirect('http://213.180.83.51/pivot' + req.url);
+    res.redirect('http://213.180.83.51' + req.url);
 });
 app.listen(process.env.port || 8000);
 
