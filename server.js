@@ -13,5 +13,8 @@ app.get('/', function (req, res) {
 app.get('/blog', function (req, res) {
     res.redirect('http://blog.bjartwolf.com');
 });
+app.get('/pivot/:path', function (req, res) {
+    res.redirect('http://213.180.83.51' + req.url);
+});
 app.listen(process.env.port || 8000);
 
