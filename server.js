@@ -1,5 +1,8 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    fs = require('fs');
+
+var clientaccesspolicy = fs.readFileSync(__dirname + '/public/clientaccesspolicy.xml', 'utf8');
 
 app.configure(function () {
   app.use(express.favicon(__dirname + '/public/images/favicon.ico')); 
@@ -12,6 +15,9 @@ app.get('/', function (req, res) {
 });
 app.get('/blog', function (req, res) {
     res.redirect('http://blog.bjartwolf.com');
+});
+app.get('/clientaccesspolicy.xml', function (req, res) {
+    res.send(clientaccesspolicy);
 });
 app.get('/pivot/:path', function (req, res) {
     res.redirect('http://213.180.83.51' + req.url);
