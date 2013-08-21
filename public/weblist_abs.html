@@ -1,0 +1,160 @@
+
+<!-- saved from url=(0028)file:///tmp/pprof6012.3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body><doctype html="">
+
+
+<title>Pprof listing</title>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+}
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+.legend {
+  font-size: 1.25em;
+}
+.line {
+  color: #aaaaaa;
+}
+.livesrc {
+  color: #0000ff;
+  cursor: pointer;
+}
+.livesrc:hover {
+  background-color: #cccccc;
+}
+.asm {
+  color: #888888;
+  display: none;
+}
+</style>
+<script type="text/javascript">
+function pprof_toggle_asm(e) {
+  var target;
+  if (!e) e = window.event;
+  if (e.target) target = e.target;
+  else if (e.srcElement) target = e.srcElement;
+
+  if (target && target.className == "livesrc") {
+    var asm = target.nextSibling;
+    if (asm && asm.className == "asm") {
+      asm.style.display = (asm.style.display == "block" ? "none" : "block");
+      e.preventDefault();
+      return false;
+    }
+  }
+}
+</script>
+
+
+<div class="legend">main<br>Total: 362 samples</div>
+<h1>main.BenchmarkInSaneAbs</h1>/home/bjartwolf/go/src/github.com/bjartwolf/profileAbs/main.go
+<pre onclick="pprof_toggle_asm()">Total:   227    227 (flat / cumulative samples)
+<span class="line">   19</span> <span class="deadsrc">              			abs.SaneAbs(number)</span>
+<span class="line">   20</span> <span class="deadsrc">              		}</span>
+<span class="line">   21</span> <span class="deadsrc">              	}</span>
+<span class="line">   22</span> <span class="deadsrc">              }</span>
+<span class="line">   23</span> <span class="deadsrc">              </span>
+<span class="line">   24</span> <span class="deadsrc">              func BenchmarkInSaneAbs(b *testing.B) {</span>
+<span class="line">   25</span> <span class="livesrc">     9      9 	for i:= 0; i&lt; b.N; i++ {</span><span class="asm">                    		0000000000400c89: XORQ	R8,R8
+                    		0000000000400c8c: MOVQ	70(R9),BX
+                    		0000000000400c90: CMPQ	R8,BX
+                    		0000000000400c93: JLE	main.BenchmarkInSaneAbs+0x6f(SB)
+                    		0000000000400ce3: INCQ	R8
+                    		0000000000400ce6: MOVQ	70(R9),BX
+           9      9 		0000000000400cea: CMPQ	R8,BX
+                    		0000000000400ced: JGT	main.BenchmarkInSaneAbs+0x15(SB)
+</span>
+<span class="line">   26</span> <span class="livesrc">   151    151 		for _, number := range numbers {</span><span class="asm" style="display: none;">           2      2 		0000000000400c95: LEAQ	main.numbers(SB),BX
+                    		0000000000400c9d: LEAQ	main.autotmp_0006+0(SP),BP
+                    		0000000000400ca1: MOVQ	BP,DI
+           1      1 		0000000000400ca4: MOVQ	BX,SI
+                    		0000000000400ca7: MOVQ	$a,CX
+          43     43 		0000000000400cae: REP MOVSQ	(SI),(DI)
+          26     26 		0000000000400cb1: XORQ	CX,CX
+                    		0000000000400cb4: MOVQ	$a,SI
+           6      6 		0000000000400cbb: LEAQ	main.autotmp_0006+0(SP),BX
+                    		0000000000400cbf: MOVQ	BX,AX
+                    		0000000000400cc2: CMPQ	SI,CX
+                    		0000000000400cc5: JGE	main.BenchmarkInSaneAbs+0x63(SB)
+           9      9 		0000000000400cc7: MOVQ	0(AX),DX
+          21     21 		0000000000400cca: ADDQ	$8,AX
+          43     43 		0000000000400cdb: INCQ	CX
+                    		0000000000400cde: CMPQ	SI,CX
+                    		0000000000400ce1: JLT	main.BenchmarkInSaneAbs+0x47(SB)
+</span>
+<span class="line">   27</span> <span class="livesrc">    67     67 			abs.InSaneAbs(number)</span><span class="asm" style="display: block;">          40     40 		0000000000400cce: MOVQ	DX,BX
+                    		0000000000400cd1: SARQ	$3f,DX
+          10     10 		0000000000400cd5: XORQ	DX,BX
+          17     17 		0000000000400cd8: SUBQ	DX,BX
+</span>
+<span class="line">   28</span> <span class="deadsrc">              		}</span>
+<span class="line">   29</span> <span class="deadsrc">              	}</span>
+<span class="line">   30</span> <span class="deadsrc">              }</span>
+<span class="line">   31</span> <span class="deadsrc">              </span>
+<span class="line">   32</span> <span class="deadsrc">              func main() {</span>
+<span class="line">   33</span> <span class="deadsrc">              	flag.Parse()</span>
+<span class="line">   34</span> <span class="deadsrc">              	if *cpuprofile != "" {</span>
+<span class="line">   35</span> <span class="deadsrc">              		f, err := os.Create(*cpuprofile)</span>
+</pre>
+<h1>main.BenchmarkSaneAbs</h1>/home/bjartwolf/go/src/github.com/bjartwolf/profileAbs/main.go
+<pre onclick="pprof_toggle_asm()">Total:   135    135 (flat / cumulative samples)
+<span class="line">   11</span> <span class="deadsrc">              )</span>
+<span class="line">   12</span> <span class="deadsrc">              </span>
+<span class="line">   13</span> <span class="deadsrc">              var numbers  = [10]int{-340,-4253656356263,454265436245435,0,-24,-2324542544354352,-4,42,-24,-math.MaxInt64}</span>
+<span class="line">   14</span> <span class="deadsrc">              var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")</span>
+<span class="line">   15</span> <span class="deadsrc">              </span>
+<span class="line">   16</span> <span class="deadsrc">              func BenchmarkSaneAbs(b *testing.B) {</span>
+<span class="line">   17</span> <span class="livesrc">     7      7 	for i:= 0; i&lt; b.N; i++ {</span><span class="asm">                    		0000000000400c09: XORQ	R8,R8
+                    		0000000000400c0c: MOVQ	70(R9),BX
+                    		0000000000400c10: CMPQ	R8,BX
+                    		0000000000400c13: JLE	main.BenchmarkSaneAbs+0x68(SB)
+                    		0000000000400c5c: INCQ	R8
+                    		0000000000400c5f: MOVQ	70(R9),BX
+           7      7 		0000000000400c63: CMPQ	R8,BX
+                    		0000000000400c66: JGT	main.BenchmarkSaneAbs+0x15(SB)
+</span>
+<span class="line">   18</span> <span class="livesrc">   112    112 		for _, number := range numbers {</span><span class="asm">           1      1 		0000000000400c15: LEAQ	main.numbers(SB),BX
+                    		0000000000400c1d: LEAQ	main.autotmp_0000+0(SP),BP
+                    		0000000000400c21: MOVQ	BP,DI
+                    		0000000000400c24: MOVQ	BX,SI
+                    		0000000000400c27: MOVQ	$a,CX
+          42     42 		0000000000400c2e: REP MOVSQ	(SI),(DI)
+          13     13 		0000000000400c31: XORQ	DX,DX
+                    		0000000000400c34: MOVQ	$a,SI
+                    		0000000000400c3b: LEAQ	main.autotmp_0000+0(SP),BX
+                    		0000000000400c3f: MOVQ	BX,CX
+           1      1 		0000000000400c42: CMPQ	SI,DX
+                    		0000000000400c45: JGE	main.BenchmarkSaneAbs+0x5c(SB)
+          20     20 		0000000000400c47: MOVQ	0(CX),BP
+          15     15 		0000000000400c4a: ADDQ	$8,CX
+          18     18 		0000000000400c54: INCQ	DX
+                    		0000000000400c57: CMPQ	SI,DX
+                    		0000000000400c5a: JLT	main.BenchmarkSaneAbs+0x47(SB)
+           2      2 		0000000000400c73: JMP	main.BenchmarkSaneAbs+0x54(SB)
+                    		0000000000400c75: ADDB	AL,0(AX)
+                    		0000000000400c77: ADDB	AL,0(AX)
+                    		0000000000400c79: ADDB	AL,0(AX)
+                    		0000000000400c7b: ADDB	AL,0(AX)
+                    		0000000000400c7d: ADDB	AL,0(AX)
+                    		0000000000400c7f: ADDB	CL,ffffff83(AX)
+</span>
+<span class="line">   19</span> <span class="livesrc">    16     16 			abs.SaneAbs(number)</span><span class="asm" style="display: block;">                    		0000000000400c4e: CMPQ	BP,$0
+                    		0000000000400c52: JLE	main.BenchmarkSaneAbs+0x6d(SB)
+          16     16 		0000000000400c6d: MOVQ	BP,BX
+                    		0000000000400c70: NEGQ	BX
+</span>
+<span class="line">   20</span> <span class="deadsrc">              		}</span>
+<span class="line">   21</span> <span class="deadsrc">              	}</span>
+<span class="line">   22</span> <span class="deadsrc">              }</span>
+<span class="line">   23</span> <span class="deadsrc">              </span>
+<span class="line">   24</span> <span class="deadsrc">              func BenchmarkInSaneAbs(b *testing.B) {</span>
+<span class="line">   25</span> <span class="deadsrc">              	for i:= 0; i&lt; b.N; i++ {</span>
+<span class="line">   26</span> <span class="deadsrc">              		for _, number := range numbers {</span>
+<span class="line">   27</span> <span class="deadsrc">              			abs.InSaneAbs(number)</span>
+</pre>
+
+
+</doctype></body></html>
